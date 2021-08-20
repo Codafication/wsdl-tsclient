@@ -33,7 +33,7 @@ const conf = yargs(process.argv.slice(2))
     })
     .option("caseInsensitiveNames", {
         type: "boolean",
-        description: "Case-insensitive name while parsing definition names"
+        description: "Case-insensitive name while parsing definition names",
     })
     .option("maxRecursiveDefinitionName", {
         type: "number",
@@ -50,6 +50,11 @@ const conf = yargs(process.argv.slice(2))
     .option("no-color", {
         type: "boolean",
         description: "Logs without colors",
+    })
+    .option("skipChangeCase", {
+        type: "boolean",
+        default: "false",
+        description: "Skip change case",
     }).argv;
 
 // Logger section
@@ -91,6 +96,10 @@ if (conf.maxRecursiveDefinitionName || conf.maxRecursiveDefinitionName == 0) {
 
 if (conf.caseInsensitiveNames) {
     options.caseInsensitiveNames = conf.caseInsensitiveNames;
+}
+
+if (conf.skipChangeCase) {
+    options.skipChangeCase = true;
 }
 
 Logger.debug("Options");

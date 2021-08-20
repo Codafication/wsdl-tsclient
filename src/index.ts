@@ -13,6 +13,7 @@ export interface Options {
     modelNameSuffix: string;
     caseInsensitiveNames: boolean;
     maxRecursiveDefinitionName: number;
+    skipChangeCase: boolean;
 }
 
 export const defaultOptions: Options = {
@@ -20,7 +21,8 @@ export const defaultOptions: Options = {
     modelNamePreffix: "",
     modelNameSuffix: "",
     caseInsensitiveNames: false,
-    maxRecursiveDefinitionName: 64
+    maxRecursiveDefinitionName: 64,
+    skipChangeCase: false,
 };
 
 export async function parseAndGenerate(
